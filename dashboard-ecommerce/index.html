@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Дашборд продаж</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 20px;
+        }
+        .pdf-container {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            background: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Дашборд анализа зарплат</h1>
+
+    <div class="pdf-container">
+        <iframe 
+            src="dashboard.pdf" 
+            width="100%" 
+            height="800px" 
+            style="border: none;">
+        </iframe>
+    </div>
+    
+    <p><a href="dashboard.pdf" download>Скачать PDF</a></p>
+</body>
+</html>
