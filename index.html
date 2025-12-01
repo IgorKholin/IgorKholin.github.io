@@ -17,326 +17,170 @@
             background-color: #f5f5f5;
             color: #333;
             line-height: 1.6;
+            font-size: 16px;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 15px;
         }
 
         .resume {
             background: white;
-            border-radius: 12px;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
         }
 
         /* Header Styles */
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 40px;
+            padding: 25px 20px;
             text-align: center;
-            position: relative;
         }
 
         .name {
-            font-size: 2.4em;
-            font-weight: 300;
-            margin-bottom: 10px;
+            font-size: 1.8em;
+            font-weight: 600;
+            margin-bottom: 8px;
+            line-height: 1.2;
         }
 
         .title {
-            font-size: 1.4em;
+            font-size: 1.1em;
             opacity: 0.95;
-            font-weight: 300;
-            margin-bottom: 15px;
+            font-weight: 400;
+            margin-bottom: 12px;
         }
 
         .salary {
             background: rgba(255,255,255,0.2);
-            padding: 12px 20px;
+            padding: 10px 15px;
             border-radius: 8px;
-            margin: 15px auto;
-            border-left: 4px solid #fff;
-            max-width: 500px;
+            margin: 12px auto;
+            border-left: 3px solid #fff;
+            max-width: 100%;
             font-weight: 500;
-            backdrop-filter: blur(5px);
+            font-size: 0.95em;
         }
 
         .contact-info {
-            margin-top: 20px;
+            margin-top: 15px;
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 8px 15px;
+            gap: 8px;
+            padding: 6px 12px;
             background: rgba(255,255,255,0.1);
-            border-radius: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .contact-item:hover {
-            background: rgba(255,255,255,0.2);
-            transform: translateY(-2px);
+            border-radius: 18px;
+            font-size: 0.9em;
         }
 
         .personal-info {
-            margin-top: 20px;
-            font-size: 0.95em;
+            margin-top: 15px;
+            font-size: 0.9em;
             opacity: 0.9;
-        }
-
-        /* Projects Banner */
-        .projects-banner {
-            background: #f8f9fa;
-            padding: 20px 40px;
-            border-bottom: 2px solid #e9ecef;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
             flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .projects-title {
-            font-weight: bold;
-            color: #495057;
-            display: flex;
-            align-items: center;
+            justify-content: center;
             gap: 10px;
         }
 
-        .projects-links {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
+        /* Projects Banner - АДАПТИВНЫЙ */
+        .projects-banner {
+            background: #f8f9fa;
+            padding: 15px;
+            border-bottom: 1px solid #e9ecef;
         }
 
-        .project-link {
+        .projects-title {
+            font-weight: 600;
+            color: #495057;
             display: flex;
             align-items: center;
             gap: 8px;
-            padding: 10px 18px;
+            margin-bottom: 15px;
+            font-size: 1em;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .project-card {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px;
             background: white;
             border-radius: 8px;
-            color: #495057;
-            text-decoration: none;
             border: 1px solid #dee2e6;
-            transition: all 0.3s ease;
-            font-weight: 500;
+            text-decoration: none;
+            color: #495057;
+            transition: all 0.2s ease;
         }
 
-        .project-link:hover {
-            background: #667eea;
-            color: white;
+        .project-card:hover {
+            background: #f8f9ff;
             border-color: #667eea;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+            transform: translateY(-2px);
         }
-/* Стили для проектов */
-.projects-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    flex-wrap: wrap;
-}
 
-.main-projects {
-    display: flex;
-    gap: 10px;
-}
+        .project-icon {
+            width: 36px;
+            height: 36px;
+            min-width: 36px;
+            background: #667eea;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1em;
+        }
 
-/* Для варианта с выпадающим списком */
-.projects-dropdown {
-    position: relative;
-}
+        .project-info {
+            flex: 1;
+            min-width: 0;
+        }
 
-.dropdown-toggle {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 16px;
-    background: white;
-    border: 1px solid #dee2e6;
-    border-radius: 8px;
-    color: #495057;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
+        .project-name {
+            font-weight: 600;
+            margin-bottom: 2px;
+            color: #333;
+            font-size: 0.9em;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
 
-.dropdown-toggle:hover {
-    background: #f8f9fa;
-    border-color: #667eea;
-}
+        .project-desc {
+            font-size: 0.75em;
+            color: #666;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
 
-.dropdown-menu {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    margin-top: 5px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    min-width: 200px;
-    display: none;
-    z-index: 100;
-    border: 1px solid #dee2e6;
-}
-
-.projects-dropdown:hover .dropdown-menu {
-    display: block;
-}
-
-.dropdown-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 16px;
-    color: #495057;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    border-bottom: 1px solid #f1f3f5;
-}
-
-.dropdown-item:last-child {
-    border-bottom: none;
-}
-
-.dropdown-item:hover {
-    background: #f8f9ff;
-    color: #667eea;
-}
-
-/* Для компактного варианта */
-.projects-compact {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.project-link.compact {
-    padding: 10px 15px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.project-text {
-    display: inline;
-}
-
-/* Для сетки проектов */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 15px;
-    width: 100%;
-}
-
-.project-card {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 15px;
-    background: white;
-    border-radius: 8px;
-    border: 1px solid #dee2e6;
-    text-decoration: none;
-    color: #495057;
-    transition: all 0.3s ease;
-}
-
-.project-card:hover {
-    background: #f8f9ff;
-    border-color: #667eea;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.1);
-}
-
-.project-icon {
-    width: 40px;
-    height: 40px;
-    background: #667eea;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 1.2em;
-}
-
-.project-info {
-    flex: 1;
-}
-
-.project-name {
-    font-weight: 600;
-    margin-bottom: 3px;
-    color: #333;
-}
-
-.project-desc {
-    font-size: 0.85em;
-    color: #666;
-}
-
-/* Адаптивность */
-@media (max-width: 768px) {
-    .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .project-link.compact .project-text {
-        display: none;
-    }
-    
-    .project-link.compact {
-        padding: 10px;
-        justify-content: center;
-    }
-}
-
-@media (max-width: 480px) {
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .main-projects {
-        flex-direction: column;
-        width: 100%;
-    }
-}
-        /* Main Content - Desktop Layout */
+        /* Main Content */
         .main-content {
             display: flex;
-            flex-wrap: wrap;
-        }
-
-        .left-column {
-            flex: 1;
-            min-width: 300px;
-            border-right: 1px solid #eee;
-        }
-
-        .right-column {
-            flex: 2;
-            min-width: 300px;
+            flex-direction: column;
         }
 
         /* Section Styles */
         .section {
-            padding: 30px 40px;
+            padding: 20px;
             border-bottom: 1px solid #eee;
         }
 
@@ -345,67 +189,66 @@
         }
 
         .section-title {
-            font-size: 1.5em;
+            font-size: 1.3em;
             color: #667eea;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
             border-bottom: 2px solid #667eea;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .section-title i {
-            font-size: 1.2em;
+            font-size: 1em;
         }
 
         /* Experience Styles */
         .experience-item {
-            margin-bottom: 30px;
-            padding: 20px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            border-left: 4px solid transparent;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 3px solid #e9ecef;
         }
 
-        .experience-item:hover {
-            background: #f8f9ff;
-            border-left-color: #667eea;
+        .experience-item:last-child {
+            margin-bottom: 0;
         }
 
         .experience-header {
             display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
+            flex-direction: column;
+            gap: 5px;
             margin-bottom: 10px;
         }
 
         .company {
-            font-weight: bold;
-            font-size: 1.2em;
+            font-weight: 600;
+            font-size: 1.1em;
             color: #333;
         }
 
         .period {
             color: #666;
-            font-size: 0.9em;
+            font-size: 0.85em;
             background: #f0f0f0;
-            padding: 5px 12px;
-            border-radius: 20px;
-            white-space: nowrap;
+            padding: 4px 10px;
+            border-radius: 12px;
+            align-self: flex-start;
         }
 
         .position {
-            font-style: italic;
             color: #667eea;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             font-weight: 500;
+            font-size: 0.95em;
         }
 
         .description {
             color: #555;
-            margin-bottom: 12px;
-            line-height: 1.7;
+            margin-bottom: 10px;
+            line-height: 1.5;
+            font-size: 0.95em;
         }
 
         .description p {
@@ -414,136 +257,241 @@
 
         .tools {
             color: #888;
-            font-size: 0.9em;
+            font-size: 0.85em;
             font-style: italic;
-            padding-top: 10px;
+            padding-top: 8px;
             border-top: 1px dashed #ddd;
         }
 
-        /* Skills Styles */
+        /* Skills Styles - АДАПТИВНЫЙ */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: 1fr;
+            gap: 12px;
         }
 
         .skill-category {
-            margin-bottom: 20px;
-            padding: 15px;
+            padding: 12px;
             background: #f8f9ff;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
+            border-radius: 6px;
+            border-left: 3px solid #667eea;
         }
 
         .skill-name {
-            font-weight: bold;
-            margin-bottom: 10px;
+            font-weight: 600;
+            margin-bottom: 8px;
             color: #333;
-            font-size: 1.1em;
+            font-size: 1em;
         }
 
         .skill-items {
             color: #555;
-            line-height: 1.6;
+            line-height: 1.5;
+            font-size: 0.9em;
         }
 
         /* Education Styles */
         .education-item {
-            margin-bottom: 20px;
-            padding: 15px;
+            padding: 12px;
             background: #f8f9ff;
-            border-radius: 8px;
+            border-radius: 6px;
         }
 
         .institution {
-            font-weight: bold;
+            font-weight: 600;
             margin-bottom: 5px;
             color: #333;
+            font-size: 1em;
         }
 
         .degree {
             color: #667eea;
             margin-bottom: 5px;
             font-weight: 500;
-        }
-
-        /* Links */
-        a {
-            color: #667eea;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        a:hover {
-            text-decoration: underline;
+            font-size: 0.95em;
         }
 
         /* Additional Info */
         .additional-info {
             background: #f8f9ff;
-            padding: 25px;
-            border-radius: 8px;
-            margin-top: 10px;
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 0.95em;
+        }
+
+        .additional-info ul {
+            margin-left: 20px;
+            margin-top: 8px;
+            margin-bottom: 15px;
+        }
+
+        .additional-info li {
+            margin-bottom: 5px;
         }
 
         /* Footer */
         .footer {
             text-align: center;
-            padding: 20px;
+            padding: 15px;
             color: #666;
-            font-size: 0.9em;
+            font-size: 0.85em;
             border-top: 1px solid #eee;
             background: #f9f9f9;
         }
 
-        /* Responsive */
-        @media (max-width: 992px) {
-            .main-content {
-                flex-direction: column;
-            }
-            
-            .left-column {
-                border-right: none;
-                border-bottom: 1px solid #eee;
-            }
-        }
-
-        @media (max-width: 768px) {
+        /* Десктоп версия */
+        @media (min-width: 768px) {
             .container {
-                padding: 10px;
+                padding: 30px;
             }
             
-            .header, .section {
-                padding: 25px;
+            .resume {
+                border-radius: 12px;
+                box-shadow: 0 5px 25px rgba(0,0,0,0.1);
             }
             
-            .projects-banner {
-                padding: 15px 25px;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 15px;
+            .header {
+                padding: 40px;
             }
             
-            .projects-links {
-                width: 100%;
-                flex-direction: column;
+            .name {
+                font-size: 2.4em;
             }
             
-            .project-link {
-                width: 100%;
-                justify-content: center;
+            .title {
+                font-size: 1.4em;
             }
             
-            .experience-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 10px;
+            .salary {
+                padding: 12px 20px;
+                max-width: 500px;
+                font-size: 1em;
             }
             
             .contact-info {
+                flex-direction: row;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 15px;
+                margin-top: 20px;
+            }
+            
+            .contact-item {
+                padding: 8px 15px;
+                font-size: 1em;
+            }
+            
+            .personal-info {
+                margin-top: 20px;
+                font-size: 0.95em;
+            }
+            
+            /* Projects для десктопа */
+            .projects-banner {
+                padding: 20px 40px;
+            }
+            
+            .projects-title {
+                font-size: 1.1em;
+                margin-bottom: 20px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 15px;
+            }
+            
+            .project-card {
+                padding: 15px;
                 flex-direction: column;
+                text-align: center;
+                gap: 12px;
+            }
+            
+            .project-info {
+                width: 100%;
+            }
+            
+            .project-name {
+                font-size: 1em;
+                white-space: normal;
+            }
+            
+            .project-desc {
+                font-size: 0.85em;
+                white-space: normal;
+            }
+            
+            /* Десктоп layout */
+            .main-content {
+                flex-direction: row;
+            }
+            
+            .left-column {
+                flex: 1;
+                min-width: 300px;
+                border-right: 1px solid #eee;
+            }
+            
+            .right-column {
+                flex: 2;
+                min-width: 300px;
+            }
+            
+            .section {
+                padding: 30px 40px;
+            }
+            
+            .section-title {
+                font-size: 1.5em;
+            }
+            
+            .experience-header {
+                flex-direction: row;
+                justify-content: space-between;
                 align-items: center;
-                gap: 10px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .additional-info {
+                padding: 25px;
+            }
+        }
+
+        /* Для очень маленьких телефонов */
+        @media (max-width: 380px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .name {
+                font-size: 1.6em;
+            }
+            
+            .title {
+                font-size: 1em;
+            }
+            
+            .contact-item span {
+                font-size: 0.85em;
+            }
+            
+            .personal-info {
+                font-size: 0.85em;
+            }
+        }
+
+        /* Для средних экранов */
+        @media (min-width: 481px) and (max-width: 767px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .container {
+                padding: 20px;
             }
             
             .name {
@@ -551,25 +499,38 @@
             }
         }
 
-        @media (min-width: 1200px) {
-            .container {
-                padding: 40px;
+        /* Улучшение читаемости на телефонах */
+        @media (max-width: 767px) {
+            body {
+                font-size: 15px;
             }
             
-            .resume {
-                border-radius: 16px;
+            .section {
+                padding: 20px 15px;
+            }
+            
+            .description {
+                text-align: justify;
+            }
+            
+            .tools {
+                word-break: break-word;
             }
         }
 
         /* Print Styles */
         @media print {
-            .project-link:hover {
+            .project-card:hover {
                 transform: none;
-                box-shadow: none;
             }
             
-            .experience-item:hover {
-                background: none;
+            .container {
+                padding: 0;
+            }
+            
+            .resume {
+                box-shadow: none;
+                border-radius: 0;
             }
         }
     </style>
@@ -603,62 +564,63 @@
                 </div>
                 
                 <div class="personal-info">
-                    <i class="fas fa-map-marker-alt"></i> Санкт-Петербург, м. Обводный Канал • 25 лет • Гражданство: Россия
+                    <span><i class="fas fa-map-marker-alt"></i> Санкт-Петербург, м. Обводный Канал</span>
+                    <span>• 25 лет • Гражданство: Россия</span>
                 </div>
             </header>
 
             <!-- Projects Banner -->
-                  <div class="projects-banner">
-    <div class="projects-title">
-        <i class="fas fa-star"></i>
-        <span>Портфолио проектов:</span>
-    </div>
-    <div class="projects-grid">
-        <a href="https://igorkholin.github.io/dashboard-ecommerce/" class="project-card" target="_blank">
-            <div class="project-icon">
-                <i class="fas fa-chart-bar"></i>
+            <div class="projects-banner">
+                <div class="projects-title">
+                    <i class="fas fa-star"></i>
+                    <span>Портфолио проектов:</span>
+                </div>
+                <div class="projects-grid">
+                    <a href="https://igorkholin.github.io/dashboard-ecommerce/" class="project-card" target="_blank">
+                        <div class="project-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-name">E-commerce Dashboard</div>
+                            <div class="project-desc">Интерактивный дашборд</div>
+                        </div>
+                    </a>
+                    
+                    <a href="https://igorkholin.github.io/dashboard-salaries/" class="project-card" target="_blank">
+                        <div class="project-icon" style="background: #10b981;">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-name">Salaries Dashboard</div>
+                            <div class="project-desc">Анализ зарплат в IT</div>
+                        </div>
+                    </a>
+                    
+                    <a href="https://github.com/IgorKholin" class="project-card" target="_blank">
+                        <div class="project-icon" style="background: #333;">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-name">GitHub</div>
+                            <div class="project-desc">Все проекты и код</div>
+                        </div>
+                    </a>
+                    
+                    <a href="https://leetcode.com/u/igorkholin/" class="project-card" target="_blank">
+                        <div class="project-icon" style="background: #f59e0b;">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-name">LeetCode</div>
+                            <div class="project-desc">100+ решений задач</div>
+                        </div>
+                    </a>
+                </div>
             </div>
-            <div class="project-info">
-                <div class="project-name">E-commerce Dashboard</div>
-                <div class="project-desc">Интерактивный дашборд</div>
-            </div>
-        </a>
-        
-        <a href="https://igorkholin.github.io/dashboard-salaries/" class="project-card" target="_blank">
-            <div class="project-icon">
-                <i class="fas fa-money-bill-wave"></i>
-            </div>
-            <div class="project-info">
-                <div class="project-name">Salaries Dashboard</div>
-                <div class="project-desc">Анализ зарплат в IT</div>
-            </div>
-        </a>
-        
-        <a href="https://github.com/IgorKholin" class="project-card" target="_blank">
-            <div class="project-icon">
-                <i class="fab fa-github"></i>
-            </div>
-            <div class="project-info">
-                <div class="project-name">GitHub</div>
-                <div class="project-desc">Все проекты и код</div>
-            </div>
-        </a>
-        
-        <a href="https://leetcode.com/u/igorkholin/" class="project-card" target="_blank">
-            <div class="project-icon">
-                <i class="fas fa-code"></i>
-            </div>
-            <div class="project-info">
-                <div class="project-name">LeetCode</div>
-                <div class="project-desc">100+ решений задач</div>
-            </div>
-        </a>
-    </div>
-</div>
 
             <!-- Main Content -->
             <div class="main-content">
-                <!-- Left Column -->
+                <!-- Left Column (Skills & Education) -->
                 <div class="left-column">
                     <!-- Skills Section -->
                     <section class="section">
@@ -695,7 +657,7 @@
                     </section>
                 </div>
 
-                <!-- Right Column -->
+                <!-- Right Column (Experience & Additional Info) -->
                 <div class="right-column">
                     <!-- Experience Section -->
                     <section class="section">
@@ -751,7 +713,7 @@
                         <div class="additional-info">
                             <p><strong>Обо мне:</strong> Аналитик данных с опытом в автоматизации отчётов, построении дашбордов и оптимизации бизнес-процессов.</p>
                             <p><strong>Ключевые компетенции:</strong></p>
-                            <ul style="margin-left: 20px; margin-top: 10px; margin-bottom: 15px;">
+                            <ul>
                                 <li>Глубокий SQL – оконные функции, сложные запросы, понимание DWH и ETL</li>
                                 <li>Python для анализа – Pandas, NumPy, Matplotlib/Seaborn, автоматизация отчётов</li>
                                 <li>Визуализация данных – Metabase, Excel/Google Sheets (сводные, Power Query)</li>
@@ -773,43 +735,37 @@
     </div>
 
     <script>
-        // Добавляем небольшой интерактив для улучшения UX
+        // Простой скрипт для улучшения UX на мобильных
         document.addEventListener('DOMContentLoaded', function() {
-            // Добавляем плавную прокрутку для всех ссылок
+            // Добавляем класс для мобильных устройств
+            if (window.innerWidth <= 768) {
+                document.body.classList.add('mobile');
+            }
+            
+            // Логика для мобильного меню (если понадобится)
+            window.addEventListener('resize', function() {
+                if (window.innerWidth <= 768) {
+                    document.body.classList.add('mobile');
+                } else {
+                    document.body.classList.remove('mobile');
+                }
+            });
+            
+            // Плавная прокрутка для внутренних ссылок
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    if(targetId === '#') return;
+                    const href = this.getAttribute('href');
+                    if (href === '#') return;
                     
-                    const targetElement = document.querySelector(targetId);
-                    if(targetElement) {
+                    const target = document.querySelector(href);
+                    if (target) {
+                        e.preventDefault();
                         window.scrollTo({
-                            top: targetElement.offsetTop - 20,
+                            top: target.offsetTop - 20,
                             behavior: 'smooth'
                         });
                     }
                 });
-            });
-            
-            // Подсветка активного раздела при прокрутке
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if(entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                    }
-                });
-            }, observerOptions);
-            
-            // Наблюдаем за разделами
-            document.querySelectorAll('.section').forEach(section => {
-                observer.observe(section);
             });
         });
     </script>
