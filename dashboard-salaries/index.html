@@ -14,49 +14,44 @@
             padding: 25px;
             line-height: 1.6;
             font-size: 17px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            background-attachment: fixed;
+            background: #f0f4f8;
             min-height: 100vh;
         }
         
         .container {
             background: white;
-            border-radius: 20px;
+            border-radius: 12px;
             padding: 35px;
-            box-shadow: 0 25px 70px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             margin: 30px auto;
         }
         
         .section {
-            background: linear-gradient(135deg, #f8faff 0%, #f0f5ff 100%);
+            background: #ffffff;
             padding: 25px;
-            border-radius: 15px;
+            border-radius: 10px;
             margin-bottom: 25px;
-            border-left: 6px solid #667eea;
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.12);
-            transition: all 0.3s ease;
+            border-left: 4px solid #3498db;
+            box-shadow: 0 3px 10px rgba(52, 152, 219, 0.1);
+            transition: all 0.2s ease;
         }
         
         .section:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.18);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.15);
         }
         
         h1 {
             font-size: 42px;
             text-align: center;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #2c3e50;
             margin-bottom: 25px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
+            font-weight: 600;
         }
         
         h2 {
             color: #2c3e50;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 12px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
             font-size: 26px;
             margin-top: 0;
             font-weight: 600;
@@ -65,7 +60,7 @@
         h3 {
             font-size: 20px;
             margin-top: 20px;
-            color: #667eea;
+            color: #3498db;
             font-weight: 500;
         }
         
@@ -76,15 +71,14 @@
         li {
             margin-bottom: 10px;
             padding-left: 5px;
-            position: relative;
         }
         
         li:before {
-            content: "▸";
-            color: #667eea;
-            position: absolute;
-            left: -15px;
-            font-weight: bold;
+            content: "•";
+            color: #3498db;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
         }
         
         p {
@@ -97,27 +91,23 @@
         }
         
         .screenshots {
-            background: linear-gradient(135deg, #f8faff 0%, #f0f5ff 100%);
+            background: #ffffff;
             padding: 25px;
-            border-radius: 15px;
+            border-radius: 10px;
             margin-top: 30px;
-            border-left: 6px solid #764ba2;
+            border-left: 4px solid #3498db;
+            box-shadow: 0 3px 10px rgba(52, 152, 219, 0.1);
         }
         
         .screenshots h3 {
-            color: #764ba2;
+            color: #2c3e50;
         }
         
         .screenshots img {
-            border-radius: 10px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
             margin-bottom: 20px;
-            transition: transform 0.3s ease;
-            border: 2px solid #e0e7ff;
-        }
-        
-        .screenshots img:hover {
-            transform: scale(1.01);
+            border: 1px solid #e0e0e0;
         }
 
         /* Для десктопа - расширяем */
