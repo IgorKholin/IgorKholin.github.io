@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Резюме - Холин Игорь Олегович</title>
+    <title>Резюме - Холин Игорь Олегович | Аналитик данных</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -19,16 +20,18 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
 
         .resume {
             background: white;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         /* Header Styles */
@@ -37,19 +40,31 @@
             color: white;
             padding: 40px;
             text-align: center;
+            position: relative;
         }
 
         .name {
-            font-size: 2.2em;
+            font-size: 2.4em;
             font-weight: 300;
             margin-bottom: 10px;
         }
 
         .title {
-            font-size: 1.3em;
-            opacity: 0.9;
+            font-size: 1.4em;
+            opacity: 0.95;
             font-weight: 300;
             margin-bottom: 15px;
+        }
+
+        .salary {
+            background: rgba(255,255,255,0.2);
+            padding: 12px 20px;
+            border-radius: 8px;
+            margin: 15px auto;
+            border-left: 4px solid #fff;
+            max-width: 500px;
+            font-weight: 500;
+            backdrop-filter: blur(5px);
         }
 
         .contact-info {
@@ -63,13 +78,87 @@
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            padding: 8px 15px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
         }
 
         .personal-info {
-            margin-top: 15px;
+            margin-top: 20px;
             font-size: 0.95em;
             opacity: 0.9;
+        }
+
+        /* Projects Banner */
+        .projects-banner {
+            background: #f8f9fa;
+            padding: 20px 40px;
+            border-bottom: 2px solid #e9ecef;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .projects-title {
+            font-weight: bold;
+            color: #495057;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .projects-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .project-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            background: white;
+            border-radius: 8px;
+            color: #495057;
+            text-decoration: none;
+            border: 1px solid #dee2e6;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .project-link:hover {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        /* Main Content - Desktop Layout */
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .left-column {
+            flex: 1;
+            min-width: 300px;
+            border-right: 1px solid #eee;
+        }
+
+        .right-column {
+            flex: 2;
+            min-width: 300px;
         }
 
         /* Section Styles */
@@ -83,28 +172,44 @@
         }
 
         .section-title {
-            font-size: 1.4em;
+            font-size: 1.5em;
             color: #667eea;
             margin-bottom: 20px;
             padding-bottom: 10px;
             border-bottom: 2px solid #667eea;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i {
+            font-size: 1.2em;
         }
 
         /* Experience Styles */
         .experience-item {
-            margin-bottom: 25px;
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .experience-item:hover {
+            background: #f8f9ff;
+            border-left-color: #667eea;
         }
 
         .experience-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .company {
             font-weight: bold;
-            font-size: 1.1em;
+            font-size: 1.2em;
             color: #333;
         }
 
@@ -112,98 +217,186 @@
             color: #666;
             font-size: 0.9em;
             background: #f0f0f0;
-            padding: 3px 8px;
-            border-radius: 12px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            white-space: nowrap;
         }
 
         .position {
             font-style: italic;
             color: #667eea;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            font-weight: 500;
         }
 
         .description {
             color: #555;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+
+        .description p {
+            margin-bottom: 8px;
         }
 
         .tools {
             color: #888;
             font-size: 0.9em;
             font-style: italic;
+            padding-top: 10px;
+            border-top: 1px dashed #ddd;
         }
 
         /* Skills Styles */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
+            gap: 20px;
         }
 
         .skill-category {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9ff;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
         }
 
         .skill-name {
             font-weight: bold;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
             color: #333;
+            font-size: 1.1em;
         }
 
         .skill-items {
             color: #555;
+            line-height: 1.6;
         }
 
         /* Education Styles */
         .education-item {
             margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9ff;
+            border-radius: 8px;
         }
 
         .institution {
             font-weight: bold;
             margin-bottom: 5px;
+            color: #333;
         }
 
         .degree {
             color: #667eea;
             margin-bottom: 5px;
+            font-weight: 500;
         }
 
         /* Links */
         a {
             color: #667eea;
             text-decoration: none;
+            transition: all 0.3s ease;
         }
 
         a:hover {
             text-decoration: underline;
         }
 
-        .salary {
-            background: #d0e5ff;
-            padding: 10px 15px;
+        /* Additional Info */
+        .additional-info {
+            background: #f8f9ff;
+            padding: 25px;
             border-radius: 8px;
-            margin: 10px 0;
-            border-left: 4px solid #667eea;
+            margin-top: 10px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9em;
+            border-top: 1px solid #eee;
+            background: #f9f9f9;
         }
 
         /* Responsive */
+        @media (max-width: 992px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .left-column {
+                border-right: none;
+                border-bottom: 1px solid #eee;
+            }
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 10px;
             }
             
-            .section {
-                padding: 20px;
+            .header, .section {
+                padding: 25px;
+            }
+            
+            .projects-banner {
+                padding: 15px 25px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .projects-links {
+                width: 100%;
+                flex-direction: column;
+            }
+            
+            .project-link {
+                width: 100%;
+                justify-content: center;
             }
             
             .experience-header {
                 flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
             }
             
             .contact-info {
                 flex-direction: column;
+                align-items: center;
                 gap: 10px;
+            }
+            
+            .name {
+                font-size: 2em;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .container {
+                padding: 40px;
+            }
+            
+            .resume {
+                border-radius: 16px;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .project-link:hover {
+                transform: none;
+                box-shadow: none;
+            }
+            
+            .experience-item:hover {
+                background: none;
             }
         }
     </style>
@@ -219,134 +412,206 @@
                 
                 <div class="contact-info">
                     <div class="contact-item">
-                        <span>📱</span>
+                        <i class="fas fa-mobile-alt"></i>
                         <span>+7 (953) 4759477 (ТГ/Whatsapp)</span>
                     </div>
                     <div class="contact-item">
-                        <span>📧</span>
+                        <i class="fas fa-envelope"></i>
                         <span>igor.kholin@bk.ru</span>
                     </div>
                     <div class="contact-item">
-                        <span>🔗</span>
+                        <i class="fab fa-github"></i>
                         <span><a href="https://github.com/IgorKholin" style="color: white;">GitHub</a></span>
                     </div>
                     <div class="contact-item">
-                        <span>💻</span>
+                        <i class="fas fa-code"></i>
                         <span><a href="https://leetcode.com/u/igorkholin/" style="color: white;">LeetCode</a></span>
                     </div>
                 </div>
                 
                 <div class="personal-info">
-                    Санкт-Петербург, м. Обводный Канал • 25 лет • Гражданство: Россия
+                    <i class="fas fa-map-marker-alt"></i> Санкт-Петербург, м. Обводный Канал • 25 лет • Гражданство: Россия
                 </div>
             </header>
 
-            <!-- Experience Section -->
-            <section class="section">
-                <h2 class="section-title">Опыт работы</h2>
-                
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <div class="company">Фриланс/проектная деятельность</div>
-                        <div class="period">Июль 2025 — настоящее время (5 месяцев)</div>
-                    </div>
-                    <div class="position">Аналитик</div>
-<div class="description">
-    <p>Анализ бизнес-процессов, разработка стратегий позиционирования продукта</p>
-    <p>Разработка Telegram-ботов, продуктовый анализ</p>
-    <p>Примеры моих работ:</p>
-    <div class="links">
-        <a href="https://igorkholin.github.io/dashboard-ecommerce/" style="color: black; margin-right: 15px;">📊 Дашборд ДЦО</a>
-        <a href="https://github.com/IgorKholm" style="color: white;">🔗 GitHub</a>
-    </div>
-</div>
+            <!-- Projects Banner -->
+            <div class="projects-banner">
+                <div class="projects-title">
+                    <i class="fas fa-star"></i>
+                    <span>Ключевые проекты и портфолио:</span>
+                </div>
+                <div class="projects-links">
+                    <a href="https://igorkholin.github.io/dashboard-ecommerce/" class="project-link" target="_blank">
+                        <i class="fas fa-chart-bar"></i>
+                        Дашборд ДЦО
+                    </a>
+                    <a href="https://github.com/IgorKholin" class="project-link" target="_blank">
+                        <i class="fab fa-github"></i>
+                        GitHub с проектами
+                    </a>
+                    <a href="https://leetcode.com/u/igorkholin/" class="project-link" target="_blank">
+                        <i class="fas fa-code"></i>
+                        LeetCode профиль
+                    </a>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="main-content">
+                <!-- Left Column -->
+                <div class="left-column">
+                    <!-- Skills Section -->
+                    <section class="section">
+                        <h2 class="section-title"><i class="fas fa-tools"></i> Навыки</h2>
+                        <div class="skills-grid">
+                            <div class="skill-category">
+                                <div class="skill-name">Технические навыки</div>
+                                <div class="skill-items">SQL, Python, Pandas, NumPy, Matplotlib/Seaborn, Jupyter Notebook, REST API, Power Query</div>
+                            </div>
+                            <div class="skill-category">
+                                <div class="skill-name">Инструменты</div>
+                                <div class="skill-items">Excel, Google Sheets, Metabase, Figma, PowerPoint, Git</div>
+                            </div>
+                            <div class="skill-category">
+                                <div class="skill-name">Аналитические навыки</div>
+                                <div class="skill-items">Аналитическое мышление, статистический анализ, работа с большими данными, A/B тестирование, построение дашбордов</div>
+                            </div>
+                            <div class="skill-category">
+                                <div class="skill-name">Языки</div>
+                                <div class="skill-items">Русский (родной), Английский (B1 - Средний)</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Education Section -->
+                    <section class="section">
+                        <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Образование</h2>
+                        
+                        <div class="education-item">
+                            <div class="institution">Орловский государственный университет им. И.С. Тургенева</div>
+                            <div class="degree">Бакалавр туризма</div>
+                            <div class="period">2022</div>
+                        </div>
+                    </section>
                 </div>
 
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <div class="company">ЭТМ</div>
-                        <div class="period">Декабрь 2024 — Июнь 2025 (7 месяцев)</div>
-                    </div>
-                    <div class="position">Аналитик данных</div>
-                    <div class="description">
-                        <p>Автоматизация отчётности: Перевел 10+ ключевых отчётов с ручной обработки (Excel/Power Query) на скрипты Python, сократив время формирования с 1 часа до 5 минут и высвободив 40+ часов в месяц.</p>
-                        <p>Повышение качества данных и услуг: Провёл анализ причин нарушений SLA, внедрил систему мониторинга инцидентов. Реализованные на основе анализа меры привели к снижению количества нарушений на 25% за квартал.</p>
-                        <p>Выполнение ad-hoc анализа для поддержки операционных и стратегических решений руководства.</p>
-                    </div>
-                    <div class="tools">Инструменты: Excel, Python, SQL(Vertica), Figma</div>
-                </div>
+                <!-- Right Column -->
+                <div class="right-column">
+                    <!-- Experience Section -->
+                    <section class="section">
+                        <h2 class="section-title"><i class="fas fa-briefcase"></i> Опыт работы</h2>
+                        
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <div class="company">Фриланс/проектная деятельность</div>
+                                <div class="period">Июль 2025 — настоящее время (5 месяцев)</div>
+                            </div>
+                            <div class="position">Аналитик</div>
+                            <div class="description">
+                                <p>Анализ бизнес-процессов, разработка стратегий позиционирования продукта</p>
+                                <p>Разработка Telegram-ботов, продуктовый анализ</p>
+                                <p><strong>Примеры моих работ:</strong> Ссылки на проекты доступны выше в шапке профиля</p>
+                            </div>
+                        </div>
 
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <div class="company">SRG Appraisal</div>
-                        <div class="period">Сентябрь 2023 — Декабрь 2024 (1 год 4 месяца)</div>
-                    </div>
-                    <div class="position">Аналитик</div>
-                    <div class="description">
-                        <p>Разработка дашбордов в Metabase для руководителей направлений: Благодаря мониторинговым дашбордам улучшились оперативные показатели из KPI.</p>
-                        <p>Автоматизация отчетности на Python (pandas), время подготовки сокращено с 4 часов до 15 минут в неделю.</p>
-                        <p>Создание Telegram-бота для автоматизации коммуникации с клиентами: оптимизировал работу операционных отделов, сократив обработку обращений от клиентов на 20 человеко-часов в день.</p>
-                        <p>Сбор требований и формирование backlog задач по отчетности.</p>
-                    </div>
-                    <div class="tools">Инструменты: Excel, Metabase+SQL, Python (анализ данных/автоматизация/разработка)</div>
-                </div>
-            </section>
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <div class="company">ЭТМ</div>
+                                <div class="period">Декабрь 2024 — Июнь 2025 (7 месяцев)</div>
+                            </div>
+                            <div class="position">Аналитик данных</div>
+                            <div class="description">
+                                <p>Автоматизация отчётности: Перевел 10+ ключевых отчётов с ручной обработки (Excel/Power Query) на скрипты Python, сократив время формирования с 1 часа до 5 минут и высвободив 40+ часов в месяц.</p>
+                                <p>Повышение качества данных и услуг: Провёл анализ причин нарушений SLA, внедрил систему мониторинга инцидентов. Реализованные на основе анализа меры привели к снижению количества нарушений на 25% за квартал.</p>
+                                <p>Выполнение ad-hoc анализа для поддержки операционных и стратегических решений руководства.</p>
+                            </div>
+                            <div class="tools">Инструменты: Excel, Python, SQL(Vertica), Figma</div>
+                        </div>
 
-            <!-- Skills Section -->
-            <section class="section">
-                <h2 class="section-title">Навыки</h2>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <div class="skill-name">Технические навыки</div>
-                        <div class="skill-items">SQL, Python, Pandas, NumPy, Matplotlib/Seaborn, Jupyter Notebook, REST API, Power Query</div>
-                    </div>
-                    <div class="skill-category">
-                        <div class="skill-name">Инструменты</div>
-                        <div class="skill-items">Excel, Google Sheets, Metabase, Figma, PowerPoint, Git</div>
-                    </div>
-                    <div class="skill-category">
-                        <div class="skill-name">Аналитические навыки</div>
-                        <div class="skill-items">Аналитическое мышление, статистический анализ, работа с большими данными, A/B тестирование, построение дашбордов</div>
-                    </div>
-                    <div class="skill-category">
-                        <div class="skill-name">Языки</div>
-                        <div class="skill-items">Русский (родной), Английский (B1 - Средний)</div>
-                    </div>
-                </div>
-            </section>
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <div class="company">SRG Appraisal</div>
+                                <div class="period">Сентябрь 2023 — Декабрь 2024 (1 год 4 месяца)</div>
+                            </div>
+                            <div class="position">Аналитик</div>
+                            <div class="description">
+                                <p>Разработка дашбордов в Metabase для руководителей направлений: Благодаря мониторинговым дашбордам улучшились оперативные показатели из KPI.</p>
+                                <p>Автоматизация отчетности на Python (pandas), время подготовки сокращено с 4 часов до 15 минут в неделю.</p>
+                                <p>Создание Telegram-бота для автоматизации коммуникации с клиентами: оптимизировал работу операционных отделов, сократив обработку обращений от клиентов на 20 человеко-часов в день.</p>
+                                <p>Сбор требований и формирование backlog задач по отчетности.</p>
+                            </div>
+                            <div class="tools">Инструменты: Excel, Metabase+SQL, Python (анализ данных/автоматизация/разработка)</div>
+                        </div>
+                    </section>
 
-            <!-- Education Section -->
-            <section class="section">
-                <h2 class="section-title">Образование</h2>
-                
-                <div class="education-item">
-                    <div class="institution">Орловский государственный университет им. И.С. Тургенева</div>
-                    <div class="degree">Бакалавр туризма</div>
-                    <div class="period">2022</div>
+                    <!-- Additional Info Section -->
+                    <section class="section">
+                        <h2 class="section-title"><i class="fas fa-info-circle"></i> Дополнительная информация</h2>
+                        
+                        <div class="additional-info">
+                            <p><strong>Обо мне:</strong> Аналитик данных с опытом в автоматизации отчётов, построении дашбордов и оптимизации бизнес-процессов.</p>
+                            <p><strong>Ключевые компетенции:</strong></p>
+                            <ul style="margin-left: 20px; margin-top: 10px; margin-bottom: 15px;">
+                                <li>Глубокий SQL – оконные функции, сложные запросы, понимание DWH и ETL</li>
+                                <li>Python для анализа – Pandas, NumPy, Matplotlib/Seaborn, автоматизация отчётов</li>
+                                <li>Визуализация данных – Metabase, Excel/Google Sheets (сводные, Power Query)</li>
+                                <li>Интеграции и автоматизация – разработка ботов (Telebot), работа с API</li>
+                                <li>Изучаю – ML (Scikit-learn), инженерию данных (Airflow, DBT), архитектуру данных</li>
+                            </ul>
+                            <p><strong>LeetCode:</strong> 100+ решений по БД, описываю решения для начинающих</p>
+                            <p><strong>Личные качества:</strong> Аналитический склад ума, умение объяснять сложные вещи простым языком, инициативность</p>
+                        </div>
+                    </section>
                 </div>
-            </section>
+            </div>
 
-            <!-- Additional Info Section -->
-            <section class="section">
-                <h2 class="section-title">Дополнительная информация</h2>
-                
-                <div class="experience-item">
-                    <div class="description">
-                        <p><strong>Обо мне:</strong> Аналитик данных с опытом в автоматизации отчётов, построении дашбордов и оптимизации бизнес-процессов.</p>
-                        <p><strong>Ключевые компетенции:</strong></p>
-                        <ul style="margin-left: 20px; margin-top: 10px;">
-                            <li>Глубокий SQL – оконные функции, сложные запросы, понимание DWH и ETL</li>
-                            <li>Python для анализа – Pandas, NumPy, Matplotlib/Seaborn, автоматизация отчётов</li>
-                            <li>Визуализация данных – Metabase, Excel/Google Sheets (сводные, Power Query)</li>
-                            <li>Интеграции и автоматизация – разработка ботов (Telebot), работа с API</li>
-                            <li>Изучаю – ML (Scikit-learn), инженерию данных (Airflow, DBT), архитектуру данных</li>
-                        </ul>
-                        <p style="margin-top: 10px;"><strong>LeetCode:</strong> 100+ решений по БД, описываю решения для начинающих</p>
-                        <p><strong>Личные качества:</strong> Аналитический склад ума, умение объяснять сложные вещи простым языком, инициативность</p>
-                    </div>
-                </div>
-            </section>
+            <!-- Footer -->
+            <div class="footer">
+                <p>Резюме обновлено: Ноябрь 2024 | Все ссылки на проекты кликабельны</p>
+            </div>
         </div>
     </div>
+
+    <script>
+        // Добавляем небольшой интерактив для улучшения UX
+        document.addEventListener('DOMContentLoaded', function() {
+            // Добавляем плавную прокрутку для всех ссылок
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 20,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Подсветка активного раздела при прокрутке
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, observerOptions);
+            
+            // Наблюдаем за разделами
+            document.querySelectorAll('.section').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
 </body>
 </html>
