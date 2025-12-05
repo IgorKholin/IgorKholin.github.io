@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Анализ ДЦО</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            max-width: 1400px;
+            margin: 0 auto; 
+            padding: 25px;
+            line-height: 1.6;
+            font-size: 17px;
+            background: #f0f4f8;
+            min-height: 100vh;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 12px;
+            padding: 35px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            margin: 30px auto;
+        }
+        
+        .section {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            border-left: 4px solid #3498db;
+            box-shadow: 0 3px 10px rgba(52, 152, 219, 0.1);
+        }
+        
+        h1 {
+            font-size: 42px;
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            font-size: 26px;
+            margin-top: 0;
+            font-weight: 600;
+        }
+        
+        h3 {
+            font-size: 20px;
+            margin-top: 20px;
+            color: #3498db;
+            font-weight: 500;
+        }
+        
+        ul {
+            padding-left: 25px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+            padding-left: 5px;
+        }
+        
+        li:before {
+            content: "•";
+            color: #3498db;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        p {
+            color: #444;
+            margin-bottom: 16px;
+        }
+        
+        strong {
+            color: #2c3e50;
+        }
+        
+        .pdf-container {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 30px;
+            border-left: 4px solid #3498db;
+            box-shadow: 0 3px 10px rgba(52, 152, 219, 0.1);
+            border: 1px solid #e0e0e0;
+        }
+        
+        .pdf-container iframe {
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
+        }
+        
+        .pdf-container a {
+            display: block;
+            padding: 15px;
+            background: #3498db;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s ease;
+            margin-bottom: 15px;
+        }
+        
+        .pdf-container a:hover {
+            background: #2980b9;
+        }
+        
+        .pdf-container p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        
+        p a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        p a:hover {
+            text-decoration: underline;
+        }
+
+        /* Для десктопа - расширяем */
+        @media (min-width: 768px) {
+            body {
+                padding: 40px;
+            }
+            
+            .container {
+                padding: 50px;
+            }
+            
+            .section {
+                padding: 30px;
+            }
+            
+            h1 {
+                font-size: 48px;
+            }
+            
+            h2 {
+                font-size: 30px;
+            }
+            
+            p {
+                font-size: 18px;
+                line-height: 1.7;
+            }
+            
+            .pdf-container iframe {
+                height: 700px;
+            }
+        }
+        
+        /* Для очень широких экранов */
+        @media (min-width: 1400px) {
+            body {
+                padding: 50px;
+            }
+            
+            .container {
+                padding: 60px;
+            }
+            
+            .section {
+                padding: 35px;
+            }
+            
+            .pdf-container iframe {
+                height: 800px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Анализ эффективности ДЦО</h1>
+        
+        <div class="section">
+            <h2>О проекте</h2>
+            <p><strong>Задача:</strong> Сравнить эффективность динамического ценообразования между двумя магазинами — «Рябинка» (с ДЦО) и «Корзинка» (без ДЦО).</p>
+            
+            <h3>Технический стек:</h3>
+            <ul>
+                <li><strong>БД:</strong> PostgreSQL (витрины данных)</li>
+                <li><strong>BI:</strong> Power BI</li>
+                <li><strong>Методология:</strong> A/B-тестирование</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Структура дашборда</h2>
+            
+            <h3>1. Вводная часть</h3>
+            <ul>
+                <li>Маржинальность по категориям</li>
+                <li>Пояснение кластеров</li>
+                <li>Интерактивное дерево композиции</li>
+            </ul>
+            
+            <h3>2. Основные метрики</h3>
+            <ul>
+                <li>KPI «Рябинки» vs «Корзинки»</li>
+            </ul>
+            
+            <h3>3. Анализ алгоритмов</h3>
+            <ul>
+                <li>Сравнение алгоритмов ДЦО</li>
+                <li>Динамика глубины чека</li>
+            </ul>
+            
+            <h3>4. Влияние ИИ-алгоритмов</h3>
+            <ul>
+                <li>Фильтрация по ИИ-алгоритмам</li>
+                <li>Динамика маржинальности</li>
+            </ul>
+            
+            <h3>5. Анализ чеков</h3>
+            <ul>
+                <li>Влияние ДЦО на средний чек</li>
+                <li>Точечная диаграмма корреляции</li>
+            </ul>
+            
+            <h3>6. Динамика товаров</h3>
+            <ul>
+                <li>Прибыль по месяцам</li>
+                <li>Количество товаров</li>
+            </ul>
+        </div>
+        
+        <div class="pdf-container">
+            <p>📱 <strong>На мобильных устройствах рекомендуется:</strong></p>
+            <a href="dashboard.pdf">
+                📄 Открыть PDF в отдельной вкладке
+            </a>
+            <iframe 
+                src="dashboard.pdf" 
+                width="100%" 
+                height="600px" 
+                style="border: none;">
+            </iframe>
+        </div>
+        
+        <p><a href="dashboard.pdf" download>📥 Скачать PDF</a></p>
+    </div>
+</body>
+</html>
