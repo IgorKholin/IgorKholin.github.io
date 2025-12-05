@@ -1,260 +1,453 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <title>Анализ ДЦО</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дашборд анализа онлайн-курсов | Игорь Холин</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            max-width: 1400px;
-            margin: 0 auto; 
-            padding: 25px;
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
             line-height: 1.6;
-            font-size: 17px;
-            background: #f0f4f8;
-            min-height: 100vh;
         }
-        
+
         .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .resume {
             background: white;
             border-radius: 12px;
-            padding: 35px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            margin: 30px auto;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            overflow: hidden;
+            padding: 40px;
         }
-        
-        .section {
-            background: #ffffff;
-            padding: 25px;
-            border-radius: 10px;
-            margin-bottom: 25px;
-            border-left: 4px solid #3498db;
-            box-shadow: 0 3px 10px rgba(52, 152, 219, 0.1);
-        }
-        
-        h1 {
-            font-size: 42px;
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 40px;
             text-align: center;
-            color: #2c3e50;
-            margin-bottom: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .name {
+            font-size: 2.2em;
             font-weight: 600;
-        }
-        
-        h2 {
-            color: #2c3e50;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 10px;
-            font-size: 26px;
-            margin-top: 0;
-            font-weight: 600;
-        }
-        
-        h3 {
-            font-size: 20px;
-            margin-top: 20px;
-            color: #3498db;
-            font-weight: 500;
-        }
-        
-        ul {
-            padding-left: 25px;
-        }
-        
-        li {
             margin-bottom: 10px;
+        }
+
+        .title {
+            font-size: 1.3em;
+            opacity: 0.95;
+            font-weight: 400;
+            margin-bottom: 15px;
+        }
+
+        /* Projects Banner */
+        .projects-banner {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #e9ecef;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .projects-title {
+            font-weight: bold;
+            color: #495057;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .project-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+            text-decoration: none;
+            color: #495057;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            background: #f8f9ff;
+            border-color: #3498db;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.1);
+        }
+
+        .project-icon {
+            width: 50px;
+            height: 50px;
+            background: #3498db;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5em;
+        }
+
+        .project-info {
+            flex: 1;
+        }
+
+        .project-name {
+            font-weight: 600;
+            margin-bottom: 3px;
+            color: #333;
+            font-size: 1em;
+        }
+
+        .project-desc {
+            font-size: 0.85em;
+            color: #666;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 30px;
+        }
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 1.4em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #3498db;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i {
+            font-size: 1.1em;
+            color: #3498db;
+        }
+
+        /* Description */
+        .description {
+            background: #f8fafc;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            line-height: 1.7;
+        }
+
+        .description p {
+            margin-bottom: 15px;
+        }
+
+        .description ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .description li {
+            margin-bottom: 8px;
+            position: relative;
             padding-left: 5px;
         }
-        
-        li:before {
+
+        .description li:before {
             content: "•";
             color: #3498db;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
+            font-weight: bold;
+            position: absolute;
+            left: -15px;
         }
-        
-        p {
-            color: #444;
-            margin-bottom: 16px;
-        }
-        
-        strong {
-            color: #2c3e50;
-        }
-        
+
+        /* PDF Container */
         .pdf-container {
-            background: #ffffff;
+            background: white;
             padding: 25px;
             border-radius: 10px;
             margin-top: 30px;
-            border-left: 4px solid #3498db;
-            box-shadow: 0 3px 10px rgba(52, 152, 219, 0.1);
-            border: 1px solid #e0e0e0;
+            border: 2px solid #e0e0e0;
+            text-align: center;
         }
-        
+
         .pdf-container iframe {
             border-radius: 8px;
             box-shadow: 0 3px 10px rgba(0,0,0,0.1);
             border: 1px solid #e0e0e0;
-        }
-        
-        .pdf-container a {
-            display: block;
-            padding: 15px;
-            background: #3498db;
-            color: white;
-            text-align: center;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background 0.3s ease;
-            margin-bottom: 15px;
-        }
-        
-        .pdf-container a:hover {
-            background: #2980b9;
-        }
-        
-        .pdf-container p {
-            margin-bottom: 15px;
-            color: #666;
-        }
-        
-        p a {
-            color: #3498db;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        
-        p a:hover {
-            text-decoration: underline;
+            margin-top: 15px;
         }
 
-        /* Для десктопа - расширяем */
-        @media (min-width: 768px) {
-            body {
-                padding: 40px;
-            }
-            
+        .pdf-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid #3498db;
+            font-size: 1em;
+            margin: 15px 0;
+        }
+
+        .pdf-button:hover {
+            background: #2980b9;
+            border-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .mobile-notice {
+            background: #fff9db;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #f59f00;
+            margin-top: 20px;
+            font-size: 0.95em;
+            color: #5c3c00;
+        }
+
+        /* Back Link */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #3498db;
+            text-decoration: none;
+            margin-top: 40px;
+            padding: 12px 24px;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            background: #3498db;
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
             .container {
-                padding: 50px;
+                padding: 15px;
             }
             
-            .section {
-                padding: 30px;
+            .resume {
+                padding: 25px;
             }
             
-            h1 {
-                font-size: 48px;
+            .header {
+                padding: 30px 20px;
             }
             
-            h2 {
-                font-size: 30px;
+            .name {
+                font-size: 1.8em;
             }
             
-            p {
-                font-size: 18px;
-                line-height: 1.7;
+            .title {
+                font-size: 1.1em;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 1.3em;
             }
             
             .pdf-container iframe {
-                height: 700px;
+                height: 500px;
+            }
+            
+            .pdf-button {
+                width: 100%;
+                justify-content: center;
             }
         }
-        
-        /* Для очень широких экранов */
-        @media (min-width: 1400px) {
-            body {
-                padding: 50px;
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 25px 15px;
             }
             
-            .container {
-                padding: 60px;
+            .name {
+                font-size: 1.6em;
             }
             
-            .section {
-                padding: 35px;
+            .project-card {
+                padding: 12px;
             }
             
-            .pdf-container iframe {
-                height: 800px;
+            .project-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3em;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>📊 Анализ эффективности ДЦО</h1>
-        
-        <div class="section">
-            <h2>О проекте</h2>
-            <p><strong>Задача:</strong> Сравнить эффективность динамического ценообразования между двумя магазинами — «Рябинка» (с ДЦО) и «Корзинка» (без ДЦО).</p>
-            
-            <h3>Технический стек:</h3>
-            <ul>
-                <li><strong>БД:</strong> PostgreSQL (витрины данных)</li>
-                <li><strong>BI:</strong> Power BI</li>
-                <li><strong>Методология:</strong> A/B-тестирование</li>
-            </ul>
-        </div>
+        <div class="resume">
+            <!-- Header -->
+            <header class="header">
+                <h1 class="name">📊 Дашборд анализа онлайн-курсов</h1>
+                <div class="title">Мониторинг активности и успеваемости студентов</div>
+            </header>
 
-        <div class="section">
-            <h2>Структура дашборда</h2>
-            
-            <h3>1. Вводная часть</h3>
-            <ul>
-                <li>Маржинальность по категориям</li>
-                <li>Пояснение кластеров</li>
-                <li>Интерактивное дерево композиции</li>
-            </ul>
-            
-            <h3>2. Основные метрики</h3>
-            <ul>
-                <li>KPI «Рябинки» vs «Корзинки»</li>
-            </ul>
-            
-            <h3>3. Анализ алгоритмов</h3>
-            <ul>
-                <li>Сравнение алгоритмов ДЦО</li>
-                <li>Динамика глубины чека</li>
-            </ul>
-            
-            <h3>4. Влияние ИИ-алгоритмов</h3>
-            <ul>
-                <li>Фильтрация по ИИ-алгоритмам</li>
-                <li>Динамика маржинальности</li>
-            </ul>
-            
-            <h3>5. Анализ чеков</h3>
-            <ul>
-                <li>Влияние ДЦО на средний чек</li>
-                <li>Точечная диаграмма корреляции</li>
-            </ul>
-            
-            <h3>6. Динамика товаров</h3>
-            <ul>
-                <li>Прибыль по месяцам</li>
-                <li>Количество товаров</li>
-            </ul>
+            <!-- Projects Banner -->
+            <div class="projects-banner">
+                <div class="projects-title">
+                    <i class="fas fa-star"></i>
+                    <span>Другие проекты:</span>
+                </div>
+                <div class="projects-grid">
+                    <a href="https://igorkholin.github.io/dashboard-ecommerce/" class="project-card" target="_blank">
+                        <div class="project-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-name">E-commerce Dashboard</div>
+                            <div class="project-desc">Анализ динамического ценообразования</div>
+                        </div>
+                    </a>
+                    
+                    <a href="https://igorkholin.github.io/bots/" class="project-card" target="_blank">
+                        <div class="project-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-name">Чат-боты для бизнеса</div>
+                            <div class="project-desc">Telegram CRM + WhatsApp рассылки</div>
+                        </div>
+                    </a>
+                    
+                    <a href="https://igorkholin.github.io/dashboard-salaries/" class="project-card" target="_blank">
+                        <div class="project-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-name">Salaries Dashboard</div>
+                            <div class="project-desc">Анализ зарплат в IT-сфере</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="main-content">
+                <!-- Описание проекта -->
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-info-circle"></i> О проекте</h2>
+                    <div class="description">
+                        <p>Это дашборд для мониторинга активности и успеваемости студентов на онлайн‑курсах за выбранный период.</p>
+                        
+                        <p>В верхней части размещены ключевые метрики:</p>
+                        <ul>
+                            <li>Доля завершённых курсов</li>
+                            <li>Средняя оценка</li>
+                            <li>Средняя посещаемость</li>
+                            <li>Среднее проведённое время на платформе</li>
+                        </ul>
+
+                        <p>Слева расположен блок фильтров (год/квартал/месяц, курс, статус курса), который позволяет анализировать показатели как по всей платформе, так и по отдельным программам и группам.</p>
+
+                        <p>В центральной части находятся две горизонтальные гистограммы:</p>
+                        <ul>
+                            <li>Средняя посещаемость по курсам</li>
+                            <li>Средняя итоговая оценка по каждому курсу</li>
+                        </ul>
+
+                        <p>Ниже размещена детализирующая таблица с данными по студентам: курс, оценка, проведённое время, дата записи, статус прохождения и показатель посещаемости. Это позволяет быстро переходить от агрегированных показателей к конкретным студентам и выявлять тех, кто находится в зоне риска по низкой активности или успеваемости.</p>
+
+                        <p><strong>Задача дашборда:</strong> оперативный контроль качества обучения. Помогает преподавателям и координаторам видеть, какие курсы имеют лучшую посещаемость и результаты, где растёт доля завершений, а где требуется дополнительная поддержка или корректировка программы.</p>
+                    </div>
+                </section>
+
+                <!-- Технологии -->
+                <section class="section">
+                    <h2 class="section-title"><i class="fas fa-tools"></i> Технологии</h2>
+                    <div class="description">
+                        <p><strong>Инструменты визуализации:</strong> Power BI</p>
+                        <p><strong>Источники данных:</strong> SQL базы данных образовательной платформы</p>
+                        <p><strong>Методология:</strong> Анализ образовательных метрик, мониторинг KPI</p>
+                    </div>
+                </section>
+
+                <!-- PDF Дашборда -->
+                <div class="pdf-container">
+                    <h3 style="color: #2c3e50; margin-bottom: 15px;">
+                        <i class="fas fa-chart-line"></i> Дашборд в формате PDF
+                    </h3>
+                    
+                    <a href="dashboard-courses.pdf" class="pdf-button" target="_blank">
+                        <i class="fas fa-external-link-alt"></i>
+                        Открыть дашборд в новой вкладке
+                    </a>
+                    
+                    <div class="mobile-notice">
+                        <i class="fas fa-mobile-alt"></i>
+                        <strong>На мобильных устройствах:</strong> Для лучшего просмотра рекомендуем открыть PDF в отдельной вкладке
+                    </div>
+                    
+                    <iframe 
+                        src="dashboard-courses.pdf" 
+                        width="100%" 
+                        height="600px" 
+                        style="border: none;">
+                    </iframe>
+                    
+                    <div style="margin-top: 15px;">
+                        <a href="dashboard-courses.pdf" download style="color: #3498db; text-decoration: none; font-weight: 500;">
+                            <i class="fas fa-download"></i> Скачать PDF
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ссылка назад -->
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="https://igorkholin.github.io/" class="back-link">
+                    <i class="fas fa-arrow-left"></i>
+                    Вернуться к основному резюме
+                </a>
+            </div>
         </div>
-        
-        <div class="pdf-container">
-            <p>📱 <strong>На мобильных устройствах рекомендуется:</strong></p>
-            <a href="dashboard.pdf">
-                📄 Открыть PDF в отдельной вкладке
-            </a>
-            <iframe 
-                src="dashboard.pdf" 
-                width="100%" 
-                height="600px" 
-                style="border: none;">
-            </iframe>
-        </div>
-        
-        <p><a href="dashboard.pdf" download>📥 Скачать PDF</a></p>
     </div>
 </body>
 </html>
